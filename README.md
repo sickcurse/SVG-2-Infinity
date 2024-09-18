@@ -21,3 +21,4 @@ npm test
 Walkthrough Video
 Click here to view the walkthrough video
 https://drive.google.com/file/d/1vZemSHH9vxCu1jgo92tWhPpI_G3zo8iB/view?usp=sharing
+<img width="1440" alt="Screen Shot 2024-09-18 at 3 30 01 PM" src="https://github.com/user-attachments/assets/e05d35af-4088-42fb-994d-994b35e02956">
