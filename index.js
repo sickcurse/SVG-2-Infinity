@@ -1,8 +1,8 @@
-const inquirer = require('inquirer');
+const inquirer = require('inquirer').default;
 const fs = require('fs');
 const { Circle, Triangle, Square } = require('./lib/shapes');
 
-// Function to prompt the user for input
+
 function promptUser() {
   return inquirer.prompt([
     {
@@ -22,19 +22,16 @@ function promptUser() {
       message: 'Choose a shape for your logo:',
       choices: ['Circle', 'Triangle', 'Square']
     },
-    {
-      type: 'input',
-      name: 'shapeColor',
-      message: 'Enter the shape color (keyword or hex code):',
-    }
+    
+    
   ]);
 }
 
-// Function to generate SVG content based on user input
+
 function generateSVG({ text, textColor, shape, shapeColor }) {
   let shapeInstance;
 
-  // Create the correct shape instance based on the user’s choice
+
   switch (shape) {
     case 'Circle':
       shapeInstance = new Circle();
@@ -47,10 +44,9 @@ function generateSVG({ text, textColor, shape, shapeColor }) {
       break;
   }
 
-  // Set the shape’s color
+
   shapeInstance.setColor(shapeColor);
 
-  // Return the full SVG string
   return `
     <svg width="300" height="200" xmlns="http://www.w3.org/2000/svg">
       ${shapeInstance.render()}
@@ -59,12 +55,12 @@ function generateSVG({ text, textColor, shape, shapeColor }) {
   `;
 }
 
-// Main function to run the app
+
 function runApp() {
   promptUser().then(answers => {
     const svgContent = generateSVG(answers);
 
-    // Write the SVG file
+  
     fs.writeFileSync('logo.svg', svgContent);
 
     console.log('Generated logo.svg');
